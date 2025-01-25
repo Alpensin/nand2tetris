@@ -65,3 +65,16 @@ CHIP Add16 {
     FullAdder(a=carry13 , b=a[14] , c=b[14] , sum=out[14] , carry=carry14 );
     FullAdder(a=carry14 , b=a[15] , c=b[15] , sum=out[15] , carry=carry15 );
 }
+
+/**
+ * 16-bit incrementer:
+ * out = in + 1
+ */
+CHIP Inc16 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+
+    Add16(a = in, b[0] = true , out = out );
+}
